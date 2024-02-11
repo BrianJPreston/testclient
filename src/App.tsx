@@ -3,11 +3,13 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-function App() {
+function App() {  
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState('');
   const getMessage = async () => {
-    const myPromise = await fetch('http://localhost:8000/api/v1/data')
+    const myPromise = await fetch(
+      'https://testserver-jhcs.onrender.com/api/v1/data'
+    )
       .then((res) => {
         console.log('first res', res);
         return res.json();
