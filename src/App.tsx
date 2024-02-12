@@ -9,9 +9,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState('');
   const getMessage = async () => {
-    const myPromise = await fetch(
-      'https://testserver-jhcs.onrender.com/api/v1/data'
-    )
+    await fetch('https://testserver-jhcs.onrender.com/api/v1/data')
       .then((res) => {
         return res.json();
       })
