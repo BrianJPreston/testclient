@@ -1,9 +1,11 @@
+//Basic Client
+
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-function App() {  
+function App() {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState('');
   const getMessage = async () => {
@@ -11,19 +13,15 @@ function App() {
       'https://testserver-jhcs.onrender.com/api/v1/data'
     )
       .then((res) => {
-        console.log('first res', res);
         return res.json();
       })
       .then((res) => {
-        console.log('second res', res);
         setMessage(res.message);
         return res.message;
       })
       .catch((error) => {
         console.error(error);
       });
-    console.log({ myPromise });
-    console.log(JSON.stringify(myPromise));
   };
 
   return (
@@ -41,7 +39,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <button onClick={() => getMessage()}>server has been hit</button>
+        <button onClick={() => getMessage()}>Ping Server</button>
         <p> {message} </p>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
